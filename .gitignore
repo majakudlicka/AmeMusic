@@ -1,2 +1,4 @@
 config.env
 node_modules
+elm-stuff/*
+beginning-elm/elm-stuff/*
