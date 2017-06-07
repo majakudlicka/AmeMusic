@@ -8276,7 +8276,7 @@ var _user$project$BeginningElm$view = function (model_) {
 					},
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html$text('Show Records'),
+						_0: _elm_lang$html$Html$text('Uplad File'),
 						_1: {ctor: '[]'}
 					}),
 				_1: {
@@ -8290,12 +8290,23 @@ var _user$project$BeginningElm$view = function (model_) {
 						},
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html$text('Hide Records'),
+							_0: _elm_lang$html$Html$text('Show Recent Tracks'),
 							_1: {ctor: '[]'}
 						}),
 					_1: {
 						ctor: '::',
-						_0: model_.showRecords ? _elm_lang$html$Html$text('list of records here') : _elm_lang$html$Html$text(''),
+						_0: model_.showRecords ? A2(
+							_elm_lang$html$Html$input,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$type_('file'),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$placeholder('Upload your file'),
+									_1: {ctor: '[]'}
+								}
+							},
+							{ctor: '[]'}) : _elm_lang$html$Html$text('list of records here'),
 						_1: {ctor: '[]'}
 					}
 				}
