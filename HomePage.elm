@@ -47,7 +47,6 @@ view model_ =
             [ text "Upload File" ]
         , button [ onClick ShowArchive, class "mainButton" ]
             [ text "Show Recent Tracks" ]
-        , a [ href "./public/cassette.html" ] [ text "submit"]
         , if model_.showRecords then
             div []
                 [ h1 [] []
