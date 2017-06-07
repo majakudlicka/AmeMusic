@@ -15,7 +15,7 @@ h1 {
   text-align: center;
   color: white;
 }
-.mainButton, input {
+.mainButton, .confirmUploadButton, input {
   background-color: Transparent;
   border-radius: 10%;
   border: 5px solid white;
@@ -29,8 +29,8 @@ h1 {
   left: 30%;
 }
 
-input + label {
-  color: red;
+input {
+  width: 60%;
 }
 
 .trackList {
@@ -55,4 +55,8 @@ input + label {
 
 .closeButton {
   border: none;
+  background-color: Transparent;
+  color: white;
+  font-family: 'Anton';
+  font-size: 2em;
 }
