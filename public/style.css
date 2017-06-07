@@ -1,0 +1,30 @@
+/*
+#F40066
+#FF301A
+*/
+
+body {
+  background: linear-gradient(to right, #FF301A , #F40066);
+}
+.container {
+  text-align: center;
+}
+h1 {
+  font-family: 'Anton';
+  font-size: 10em;
+  text-align: center;
+  color: white;
+}
+button {
+  background-color: Transparent;
+  border-radius: 10%;
+  border: 5px solid white;
+  text-align: center;
+  color: white;
+  font-family: 'Anton';
+  font-size: 3em;
+  padding: 0.5em;
+  margin-left: auto;
+  right: 30%;
+  left: 30%;
+}
