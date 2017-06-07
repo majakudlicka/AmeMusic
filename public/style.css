@@ -55,4 +55,8 @@ input + label {
 
 .closeButton {
   border: none;
+  background-color: Transparent;
+  color: white;
+  font-family: 'Anton';
+  font-size: 2em;
 }
