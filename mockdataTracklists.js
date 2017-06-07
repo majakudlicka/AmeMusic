@@ -92,24 +92,24 @@ var mockData = {
                 "Title": "Love Somebody﻿"
             },
             {
-                "track id_number": 18,
+                "track id_number": 19,
                 "Artist": "Hu Vibrational",
                 "Title": "Locomotion﻿"
             },
             {
-                "track id_number": 18,
+                "track id_number": 20,
                 "Artist": "Emanative & Ahmed Abdullah",
-                "Title": "Lions Of Judah (Four Tet Re-Edit)﻿"
+                "Title": "Lions Of Judah (Four Tet Re-Edit)"
             },
             {
-                "track id_number": 18,
+                "track id_number": 21,
                 "Artist": "Mavis John",
-                "Title": "Use My Body﻿"
+                "Title": "Use My Body"
             },
             {
-                "track id_number": 18,
+                "track id_number": 22,
                 "Artist": "Jan Hammer Group",
-                "Title": "Don't You Know﻿"
+                "Title": "Don't You Know"
             }
         ]
     },
@@ -198,12 +198,12 @@ var mockData = {
             {
                 "track id_number": 17,
                 "Artist": "Alma Negra",
-                "Title": "Mao Negra﻿"
+                "Title": "Mao Negra"
             },
             {
                 "track id_number": 18,
                 "Artist": "Nighmares On Wax",
-                "Title": "Mao Negra﻿"
+                "Title": "Mao Negra"
             },
             {
                 "track id_number": 19,
