@@ -8272,13 +8272,18 @@ var _user$project$BeginningElm$update = F2(
 				return _elm_lang$core$Native_Utils.update(
 					model_,
 					{showArchive: true});
-			default:
+			case 'HideArchive':
 				return _elm_lang$core$Native_Utils.update(
 					model_,
 					{showArchive: false});
+			default:
+				return _elm_lang$core$Native_Utils.update(
+					model_,
+					{showSuccess: true});
 		}
 	});
-var _user$project$BeginningElm$model = {showRecords: false, showArchive: false, hideArchive: true};
+var _user$project$BeginningElm$model = {showRecords: false, showArchive: false, hideArchive: true, showSuccess: false, showCasette: true};
+var _user$project$BeginningElm$ShowSuccess = {ctor: 'ShowSuccess'};
 var _user$project$BeginningElm$HideArchive = {ctor: 'HideArchive'};
 var _user$project$BeginningElm$ShowArchive = {ctor: 'ShowArchive'};
 var _user$project$BeginningElm$ShowRecords = {ctor: 'ShowRecords'};
@@ -8339,21 +8344,51 @@ var _user$project$BeginningElm$view = function (model_) {
 					_1: {
 						ctor: '::',
 						_0: model_.showRecords ? A2(
-							_elm_lang$html$Html$input,
+							_elm_lang$html$Html$div,
+							{ctor: '[]'},
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$type_('file'),
+								_0: A2(
+									_elm_lang$html$Html$input,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$type_('file'),
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$placeholder('Upload your file'),
+											_1: {
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$class('uploadButton'),
+												_1: {ctor: '[]'}
+											}
+										}
+									},
+									{ctor: '[]'}),
 								_1: {
 									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$placeholder('Upload your file'),
-									_1: {
-										ctor: '::',
-										_0: _elm_lang$html$Html_Attributes$class('uploadButton'),
-										_1: {ctor: '[]'}
-									}
+									_0: A2(
+										_elm_lang$html$Html$button,
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html_Events$onClick(_user$project$BeginningElm$ShowSuccess),
+											_1: {
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$type_('submit'),
+												_1: {
+													ctor: '::',
+													_0: _elm_lang$html$Html_Attributes$class('mainButton'),
+													_1: {ctor: '[]'}
+												}
+											}
+										},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text('Submit'),
+											_1: {ctor: '[]'}
+										}),
+									_1: {ctor: '[]'}
 								}
-							},
-							{ctor: '[]'}) : _elm_lang$html$Html$text(''),
+							}) : _elm_lang$html$Html$text(''),
 						_1: {
 							ctor: '::',
 							_0: model_.showArchive ? A2(
@@ -8457,7 +8492,11 @@ var _user$project$BeginningElm$view = function (model_) {
 							_1: {
 								ctor: '::',
 								_0: model_.hideArchive ? _elm_lang$html$Html$text('') : _elm_lang$html$Html$text('something went wrong'),
-								_1: {ctor: '[]'}
+								_1: {
+									ctor: '::',
+									_0: model_.showSuccess ? _elm_lang$html$Html$text('Success! Here are your tracks:') : _elm_lang$html$Html$text(''),
+									_1: {ctor: '[]'}
+								}
 							}
 						}
 					}

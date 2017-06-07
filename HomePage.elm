@@ -8,7 +8,9 @@ import Html.Events exposing (..)
 model =
    { showRecords = False,
      showArchive = False,
-     hideArchive = True
+     hideArchive = True,
+     showSuccess = False,
+     showCasette = True
     }
 
 
@@ -16,12 +18,14 @@ type Msg =
       ShowRecords
     | ShowArchive
     | HideArchive
+    | ShowSuccess
 
 update msg model_ =
     case msg of
         ShowRecords -> { model_ | showRecords = True }
         ShowArchive -> { model_ | showArchive = True }
         HideArchive -> { model_ | showArchive = False }
+        ShowSuccess -> { model_ | showSuccess = True }
 
 view model_ =
     div [ class "container" ]
@@ -31,11 +35,14 @@ view model_ =
             [ text "Upload File" ]
         , button [onClick ShowArchive, class "mainButton"]
             [ text "Show Recent Tracks" ]
-        , a [ href "./public/cassette.html" ] [ text "submit"]
         , if model_.showRecords then
-            input [ type_ "file", placeholder "Upload your file", class "uploadButton"] []
-            else
-              text ""
+            div []
+             [ input [ type_ "file", placeholder "Upload your file", class "uploadButton"] []
+             , button [onClick ShowSuccess, type_ "submit", class "mainButton"]
+                [text "Submit"]
+             ]
+             else
+               text ""
         , if model_.showArchive then
             div [ class "trackList" ]
                 [ h2 [ class "tracklistHeading"] [text "Recent Tracks"]
@@ -53,6 +60,10 @@ view model_ =
               text ""
               else
                 text "something went wrong"
+          , if model_.showSuccess then
+              text "Success! Here are your tracks:"
+              else
+                text ""
         ]
 
 
