@@ -21,7 +21,7 @@ view model_ =
 
         [ h1 [] [ text "Ame Music" ]
         , button [ onClick ShowRecords]
-            [ text "Uplad File" ]
+            [ text "Upload File" ]
         , button [onClick HideRecords]
             [ text "Show Recent Tracks" ]
         , if model_.showRecords then
