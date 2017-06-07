@@ -5,6 +5,7 @@ const app = express();
 require('env2')('./config.env');
 const routes = require('./routes');
 
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
