@@ -18,15 +18,16 @@ update msg model_ =
 
 view model_ =
     div [ class "container" ]
+
         [ h1 [] [ text "Ame Music" ]
         , button [ onClick ShowRecords]
-            [ text "Show Records" ]
+            [ text "Upload File" ]
         , button [onClick HideRecords]
-            [ text "Hide Records" ]
+            [ text "Show Recent Tracks" ]
         , if model_.showRecords then
-            text "list of records here"
+            input [ type_ "file", placeholder "Upload your file" ] []
             else
-               text ""
+              text "list of records here"
         ]
 
 
