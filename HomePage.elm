@@ -24,6 +24,7 @@ view model_ =
             [ text "Upload File" ]
         , button [onClick HideRecords]
             [ text "Show Recent Tracks" ]
+        , a [ href "./public/cassette.html" ] [ text "submit"]
         , if model_.showRecords then
             input [ type_ "file", placeholder "Upload your file" ] []
             else
