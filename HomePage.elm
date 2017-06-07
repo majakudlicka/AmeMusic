@@ -6,28 +6,52 @@ import Html exposing (beginnerProgram)
 import Html.Events exposing (..)
 
 model =
-   { showRecords = False }
+   { showRecords = False,
+     showArchive = False,
+     hideArchive = True
+    }
+
 
 type Msg =
-    ShowRecords | HideRecords
+      ShowRecords
+    | ShowArchive
+    | HideArchive
 
 update msg model_ =
     case msg of
         ShowRecords -> { model_ | showRecords = True }
-        HideRecords -> { model_ | showRecords = False }
+        ShowArchive -> { model_ | showArchive = True }
+        HideArchive -> { model_ | showArchive = False }
 
 view model_ =
     div [ class "container" ]
 
         [ h1 [] [ text "Ame Music" ]
-        , button [ onClick ShowRecords]
+        , button [ onClick ShowRecords, class "mainButton"]
             [ text "Upload File" ]
-        , button [onClick HideRecords]
+        , button [onClick ShowArchive, class "mainButton"]
             [ text "Show Recent Tracks" ]
         , if model_.showRecords then
-            input [ type_ "file", placeholder "Upload your file" ] []
+            input [ type_ "file", placeholder "Upload your file", class "uploadButton"] []
             else
-              text "list of records here"
+              text ""
+        , if model_.showArchive then
+            div [ class "trackList" ]
+                [ h2 [ class "tracklistHeading"] [text "Recent Tracks"]
+                , ul [ class "tracklistList"]
+                  [ li [ class "tracklistItem" ] [text "Tracklist 1"]
+                  , li [ class "tracklistItem" ] [text "Tracklist 2"]
+                  , li [ class "tracklistItem" ] [text "Tracklist 3"]
+                  , button [onClick HideArchive, class "closeButton" ]
+                    [ text "close" ]
+                  ]
+                ]
+            else
+              text ""
+          , if model_.hideArchive then
+              text ""
+              else
+                text "something went wrong"
         ]
 
 

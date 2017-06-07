@@ -15,7 +15,7 @@ h1 {
   text-align: center;
   color: white;
 }
-button {
+.mainButton, input {
   background-color: Transparent;
   border-radius: 10%;
   border: 5px solid white;
@@ -27,4 +27,32 @@ button {
   margin-left: auto;
   right: 30%;
   left: 30%;
+}
+
+input + label {
+  color: red;
+}
+
+.trackList {
+  border: 5px solid white;
+  margin: 10%;
+  border-radius: 10%;
+}
+
+.tracklistHeading {
+  font-family: 'Anton';
+  font-size: 3em;
+  text-align: center;
+  color: white;
+}
+
+.tracklistItem {
+  color: white;
+  font-size: 2em;
+  text-align: left;
+  list-style-type: none;
+}
+
+.closeButton {
+  border: none;
 }

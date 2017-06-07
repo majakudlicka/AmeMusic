@@ -8263,18 +8263,24 @@ var _elm_lang$html$Html_Events$Options = F2(
 var _user$project$BeginningElm$update = F2(
 	function (msg, model_) {
 		var _p0 = msg;
-		if (_p0.ctor === 'ShowRecords') {
-			return _elm_lang$core$Native_Utils.update(
-				model_,
-				{showRecords: true});
-		} else {
-			return _elm_lang$core$Native_Utils.update(
-				model_,
-				{showRecords: false});
+		switch (_p0.ctor) {
+			case 'ShowRecords':
+				return _elm_lang$core$Native_Utils.update(
+					model_,
+					{showRecords: true});
+			case 'ShowArchive':
+				return _elm_lang$core$Native_Utils.update(
+					model_,
+					{showArchive: true});
+			default:
+				return _elm_lang$core$Native_Utils.update(
+					model_,
+					{showArchive: false});
 		}
 	});
-var _user$project$BeginningElm$model = {showRecords: false};
-var _user$project$BeginningElm$HideRecords = {ctor: 'HideRecords'};
+var _user$project$BeginningElm$model = {showRecords: false, showArchive: false, hideArchive: true};
+var _user$project$BeginningElm$HideArchive = {ctor: 'HideArchive'};
+var _user$project$BeginningElm$ShowArchive = {ctor: 'ShowArchive'};
 var _user$project$BeginningElm$ShowRecords = {ctor: 'ShowRecords'};
 var _user$project$BeginningElm$view = function (model_) {
 	return A2(
@@ -8301,7 +8307,11 @@ var _user$project$BeginningElm$view = function (model_) {
 					{
 						ctor: '::',
 						_0: _elm_lang$html$Html_Events$onClick(_user$project$BeginningElm$ShowRecords),
-						_1: {ctor: '[]'}
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$class('mainButton'),
+							_1: {ctor: '[]'}
+						}
 					},
 					{
 						ctor: '::',
@@ -8314,8 +8324,12 @@ var _user$project$BeginningElm$view = function (model_) {
 						_elm_lang$html$Html$button,
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html_Events$onClick(_user$project$BeginningElm$HideRecords),
-							_1: {ctor: '[]'}
+							_0: _elm_lang$html$Html_Events$onClick(_user$project$BeginningElm$ShowArchive),
+							_1: {
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('mainButton'),
+								_1: {ctor: '[]'}
+							}
 						},
 						{
 							ctor: '::',
@@ -8332,11 +8346,120 @@ var _user$project$BeginningElm$view = function (model_) {
 								_1: {
 									ctor: '::',
 									_0: _elm_lang$html$Html_Attributes$placeholder('Upload your file'),
-									_1: {ctor: '[]'}
+									_1: {
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$class('uploadButton'),
+										_1: {ctor: '[]'}
+									}
 								}
 							},
-							{ctor: '[]'}) : _elm_lang$html$Html$text('list of records here'),
-						_1: {ctor: '[]'}
+							{ctor: '[]'}) : _elm_lang$html$Html$text(''),
+						_1: {
+							ctor: '::',
+							_0: model_.showArchive ? A2(
+								_elm_lang$html$Html$div,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$class('trackList'),
+									_1: {ctor: '[]'}
+								},
+								{
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$h2,
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$class('tracklistHeading'),
+											_1: {ctor: '[]'}
+										},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text('Recent Tracks'),
+											_1: {ctor: '[]'}
+										}),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$ul,
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$class('tracklistList'),
+												_1: {ctor: '[]'}
+											},
+											{
+												ctor: '::',
+												_0: A2(
+													_elm_lang$html$Html$li,
+													{
+														ctor: '::',
+														_0: _elm_lang$html$Html_Attributes$class('tracklistItem'),
+														_1: {ctor: '[]'}
+													},
+													{
+														ctor: '::',
+														_0: _elm_lang$html$Html$text('Tracklist 1'),
+														_1: {ctor: '[]'}
+													}),
+												_1: {
+													ctor: '::',
+													_0: A2(
+														_elm_lang$html$Html$li,
+														{
+															ctor: '::',
+															_0: _elm_lang$html$Html_Attributes$class('tracklistItem'),
+															_1: {ctor: '[]'}
+														},
+														{
+															ctor: '::',
+															_0: _elm_lang$html$Html$text('Tracklist 2'),
+															_1: {ctor: '[]'}
+														}),
+													_1: {
+														ctor: '::',
+														_0: A2(
+															_elm_lang$html$Html$li,
+															{
+																ctor: '::',
+																_0: _elm_lang$html$Html_Attributes$class('tracklistItem'),
+																_1: {ctor: '[]'}
+															},
+															{
+																ctor: '::',
+																_0: _elm_lang$html$Html$text('Tracklist 3'),
+																_1: {ctor: '[]'}
+															}),
+														_1: {
+															ctor: '::',
+															_0: A2(
+																_elm_lang$html$Html$button,
+																{
+																	ctor: '::',
+																	_0: _elm_lang$html$Html_Events$onClick(_user$project$BeginningElm$HideArchive),
+																	_1: {
+																		ctor: '::',
+																		_0: _elm_lang$html$Html_Attributes$class('closeButton'),
+																		_1: {ctor: '[]'}
+																	}
+																},
+																{
+																	ctor: '::',
+																	_0: _elm_lang$html$Html$text('close'),
+																	_1: {ctor: '[]'}
+																}),
+															_1: {ctor: '[]'}
+														}
+													}
+												}
+											}),
+										_1: {ctor: '[]'}
+									}
+								}) : _elm_lang$html$Html$text(''),
+							_1: {
+								ctor: '::',
+								_0: model_.hideArchive ? _elm_lang$html$Html$text('') : _elm_lang$html$Html$text('something went wrong'),
+								_1: {ctor: '[]'}
+							}
+						}
 					}
 				}
 			}
