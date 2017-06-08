@@ -60,3 +60,7 @@ input {
   font-family: 'Anton';
   font-size: 2em;
 }
+
+.uploadButton {
+  padding:1em;
+}
