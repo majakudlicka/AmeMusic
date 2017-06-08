@@ -1,7 +1,7 @@
 var mockData = {
-    fourTetBoilerRoom: {
-        title: "Four Tet Boiler Room Set",
-        tracklist: [{
+    "fourTetBoilerRoom": {
+        "title": "Four Tet Boiler Room Set",
+        "tracklist": [{
                 "track id_number": 1,
                 "Artist": "Albert Ayler",
                 "Title": "Ghosts"
@@ -113,9 +113,9 @@ var mockData = {
             }
         ]
     },
-    nightmaresOnWaxBoilerRoom: {
-        title: "Nightmares On Wax Boiler Room Set",
-        tracklist: [{
+    "nightmaresOnWaxBoilerRoom": {
+        "title": "Nightmares On Wax Boiler Room Set",
+        "tracklist": [{
                 "track id_number": 1,
                 "Artist": "Sylvia Robinson",
                 "Title": "Sweet Stuff"
@@ -212,9 +212,9 @@ var mockData = {
             }
         ]
     },
-    joseyRebelleBoilerRoom: {
-        title: "Josey Rebelle Boiler Room",
-        tracklist: [{
+    "joseyRebelleBoilerRoom": {
+        "title": "Josey Rebelle Boiler Room",
+        "tracklist": [{
                 "track id_number": 1,
                 "Artist": "Calibre",
                 "Title": "Archive"
