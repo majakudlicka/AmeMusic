@@ -6,26 +6,26 @@ const app = express();
 // const routes = require('./routes');
 //
 // app.use('/', express.static(`${__dirname}/public`));
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 //
 
+app.get('/', (req, res) => {
+  res.sendFile('public/index.html', { root: '/Users/apple/Desktop/Desktop/Maja/AmeMusic/' });
+});
 //
 // app.use('/', routes);
 
-const options = {
-  dotfiles: 'ignore',
-  etag: false,
-  extensions: ['htm', 'html'],
-  index: false,
-  maxAge: '1d',
-  redirect: false,
-  setHeaders(res, path, stat) {
-    res.set('x-timestamp', Date.now());
-  },
-};
-
-app.use(express.static('public', options));
+// const options = {
+//   extensions: ['htm', 'html'],
+//   index: false,
+//   redirect: false,
+//   setHeaders(res, path, stat) {
+//     res.set('x-timestamp', Date.now());
+//   },
+// };
+//
+// app.use('/', express.static('public', options));
 
 const server = app.listen(process.env.PORT || 4000, () => {
   console.log(

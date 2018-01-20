@@ -6,6 +6,15 @@ const app = express.Router();
 module.exports = [
   app.get('/', (req, res) => {
     res.send('Hello world');
-    res.status(200);
+    const options = {
+      extensions: ['htm', 'html'],
+      index: false,
+      redirect: false,
+      setHeaders(res, path, stat) {
+        res.set('x-timestamp', Date.now());
+      },
+    };
+
+    app.use(express.static('public', options));
   }),
 ];
