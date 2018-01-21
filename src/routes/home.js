@@ -5,6 +5,6 @@ const app = express.Router();
 
 module.exports = [
   app.get('/', (req, res) => {
-    res.sendFile('public/index.html', { root: '/Users/apple/Desktop/Desktop/Maja/AmeMusic/' });
+    res.sendFile('index.html', { root: '/Users/apple/Desktop/Desktop/Maja/AmeMusic/' });
   }),
 ];

@@ -19,5 +19,4 @@ const server = app.listen(process.env.PORT || 4000, () => {
     server.address().port,
     app.settings.env,
   );
-  console.log(path.join(__dirname, '/../public'));
 });

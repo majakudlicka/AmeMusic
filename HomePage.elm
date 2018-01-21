@@ -25,19 +25,26 @@ type Msg
 update msg model_ =
     case msg of
         ShowRecords ->
-            { model_ | showRecords = True }
+            ({ model_ | showRecords = True }, Cmd.none)
 
         ShowArchive ->
-            { model_ | showArchive = True }
+            ({ model_ | showArchive = True }, Cmd.none)
 
         HideArchive ->
-            { model_ | showArchive = False }
+            ({ model_ | showArchive = False }, Cmd.none)
 
         ShowTrackList ->
-            { model_ | showTrackList = True }
+            ({ model_ | showTrackList = True }, Cmd.none)
 
         HideTrackList ->
-            { model_ | showTrackList = False }
+            ({ model_ | showTrackList = False }, Cmd.none)
+            
+
+
+
+init =
+  (model , Cmd.none)
+  
 
 
 view model_ =
@@ -93,8 +100,9 @@ view model_ =
 
 
 main =
-    beginnerProgram
-        { model = model
+    program
+        { init = init
         , update = update
+        , subscriptions = \_ -> Sub.none
         , view = view
         }
