@@ -1,18 +1,34 @@
-module BeginningElm exposing (..)
+module ElmMusicRecognitionModule exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 
+main =
+    program
+        { init = init
+        , update = update
+        , subscriptions = \_ -> Sub.none
+        , view = view
+        }
+        
+-- MODEL
 
-model =
-    { showRecords = False
-    , showArchive = False
-    , hideArchive = True
-    , showTrackList = False
-    , hideTrackList = True
+type alias Model =
+    { showRecords: Bool
+    , showArchive: Bool
+    , hideArchive: Bool
+    , showTrackList: Bool
+    , hideTrackList: Bool
     }
 
+init : (Model, Cmd Msg)
+init =
+  (Model False False True False True, Cmd.none)
+  
+
+
+-- UPDATE
 
 type Msg
     = ShowRecords
@@ -22,39 +38,35 @@ type Msg
     | HideTrackList
 
 
-update msg model_ =
+update : Msg -> Model -> (Model, Cmd Msg)
+update msg model =
     case msg of
         ShowRecords ->
-            ({ model_ | showRecords = True }, Cmd.none)
+            ({ model | showRecords = True }, Cmd.none)
 
         ShowArchive ->
-            ({ model_ | showArchive = True }, Cmd.none)
+            ({ model | showArchive = True }, Cmd.none)
 
         HideArchive ->
-            ({ model_ | showArchive = False }, Cmd.none)
+            ({ model | showArchive = False }, Cmd.none)
 
         ShowTrackList ->
-            ({ model_ | showTrackList = True }, Cmd.none)
+            ({ model | showTrackList = True }, Cmd.none)
 
         HideTrackList ->
-            ({ model_ | showTrackList = False }, Cmd.none)
+            ({ model | showTrackList = False }, Cmd.none)
             
+-- VIEW
 
-
-
-init =
-  (model , Cmd.none)
-  
-
-
-view model_ =
+view : Model -> Html Msg
+view model =
     div [ class "container" ]
         [ h1 [] [ text "Ame Music" ]
         , button [ onClick ShowRecords, class "mainButton" ]
             [ text "Upload File" ]
         , button [ onClick ShowArchive, class "mainButton" ]
             [ text "Show Recent Tracks" ]
-        , if model_.showRecords then
+        , if model.showRecords then
             div []
                 [ h1 [] []
                 , input [ type_ "file", placeholder "Upload your file", class "uploadButton" ] []
@@ -62,7 +74,7 @@ view model_ =
                 ]
           else
             text ""
-        , if model_.showArchive then
+        , if model.showArchive then
             div [ class "trackList" ]
                 [ h2 [ class "tracklistHeading" ] [ text "Recent Tracks" ]
                 , ul [ class "tracklistList" ]
@@ -75,11 +87,11 @@ view model_ =
                 ]
           else
             text ""
-        , if model_.hideArchive then
+        , if model.hideArchive then
             text ""
           else
             text "something went wrong"
-        , if model_.showTrackList then
+        , if model.showTrackList then
             div [ class "trackList" ]
                 [ h2 [ class "tracklistHeading" ] [ text "Tracklist" ]
                 , ul [ class "tracklistList" ]
@@ -92,17 +104,10 @@ view model_ =
                 ]
           else
             text ""
-        , if model_.hideTrackList then
+        , if model.hideTrackList then
             text ""
           else
             text "something went wrong"
         ]
 
 
-main =
-    program
-        { init = init
-        , update = update
-        , subscriptions = \_ -> Sub.none
-        , view = view
-        }
