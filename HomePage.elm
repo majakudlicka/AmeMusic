@@ -4,6 +4,7 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 
+
 main =
     program
         { init = init
@@ -11,24 +12,29 @@ main =
         , subscriptions = \_ -> Sub.none
         , view = view
         }
-        
+
+
+
 -- MODEL
 
+
 type alias Model =
-    { showRecords: Bool
-    , showArchive: Bool
-    , hideArchive: Bool
-    , showTrackList: Bool
-    , hideTrackList: Bool
+    { showRecords : Bool
+    , showArchive : Bool
+    , hideArchive : Bool
+    , showTrackList : Bool
+    , hideTrackList : Bool
     }
 
-init : (Model, Cmd Msg)
+
+init : ( Model, Cmd Msg )
 init =
-  (Model False False True False True, Cmd.none)
-  
+    ( Model False False True False True, Cmd.none )
+
 
 
 -- UPDATE
+
 
 type Msg
     = ShowRecords
@@ -38,25 +44,28 @@ type Msg
     | HideTrackList
 
 
-update : Msg -> Model -> (Model, Cmd Msg)
+update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         ShowRecords ->
-            ({ model | showRecords = True }, Cmd.none)
+            ( { model | showRecords = True }, Cmd.none )
 
         ShowArchive ->
-            ({ model | showArchive = True }, Cmd.none)
+            ( { model | showArchive = True }, Cmd.none )
 
         HideArchive ->
-            ({ model | showArchive = False }, Cmd.none)
+            ( { model | showArchive = False }, Cmd.none )
 
         ShowTrackList ->
-            ({ model | showTrackList = True }, Cmd.none)
+            ( { model | showTrackList = True }, Cmd.none )
 
         HideTrackList ->
-            ({ model | showTrackList = False }, Cmd.none)
-            
+            ( { model | showTrackList = False }, Cmd.none )
+
+
+
 -- VIEW
+
 
 view : Model -> Html Msg
 view model =
@@ -108,6 +117,36 @@ view model =
             text ""
           else
             text "something went wrong"
+
+        , div [ id "cassette", class "mixtape" ]
+            [ div [ class "tag" ]
+                  [ div [ class "title" ] []
+                  , div [ class "player" ]
+                        [ div [ class "play" ]
+                              [ div [ class "roll-1" ]
+                                    [ div [ class "teeth" ] []
+                                    ]
+                              , div [ class "roll-2" ]
+                                    [ div [ class "teeth" ] []
+                                    ]
+                              ]
+                              , div [ class "b-txt" ]
+                                    [ div [ class "slog-text" ]
+                                          [ h1 [] [ text "Eliteware" ]
+                                          ]
+                                    , div [ class "text-right" ]
+                                          [ h1 [] [ text "F190" ]
+                                          , h2 [] [ text "F190" ]
+                                          ]
+                                    ]
+                        ]
+                ]
+                , div [ class "bot-det" ] []
+                , div [ class "screws" ]
+                      [ div [ class "scr-1" ] []
+                      , div [ class "scr-2" ] []
+                      , div [ class "scr-3" ] []
+                      , div [ class "scr-4" ] []
+                      ]
+          ]
         ]
-
-
