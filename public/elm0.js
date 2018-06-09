@@ -8260,67 +8260,39 @@ var _elm_lang$html$Html_Events$Options = F2(
 		return {stopPropagation: a, preventDefault: b};
 	});
 
-var _user$project$ElmMusicRecognitionModule$update = F2(
-	function (msg, model) {
+var _user$project$BeginningElm$update = F2(
+	function (msg, model_) {
 		var _p0 = msg;
 		switch (_p0.ctor) {
 			case 'ShowRecords':
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{showRecords: true}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
+				return _elm_lang$core$Native_Utils.update(
+					model_,
+					{showRecords: true});
 			case 'ShowArchive':
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{showArchive: true}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
+				return _elm_lang$core$Native_Utils.update(
+					model_,
+					{showArchive: true});
 			case 'HideArchive':
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{showArchive: false}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
+				return _elm_lang$core$Native_Utils.update(
+					model_,
+					{showArchive: false});
 			case 'ShowTrackList':
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{showTrackList: true}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
+				return _elm_lang$core$Native_Utils.update(
+					model_,
+					{showTrackList: true});
 			default:
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{showTrackList: false}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
+				return _elm_lang$core$Native_Utils.update(
+					model_,
+					{showTrackList: false});
 		}
 	});
-var _user$project$ElmMusicRecognitionModule$Model = F5(
-	function (a, b, c, d, e) {
-		return {showRecords: a, showArchive: b, hideArchive: c, showTrackList: d, hideTrackList: e};
-	});
-var _user$project$ElmMusicRecognitionModule$init = {
-	ctor: '_Tuple2',
-	_0: A5(_user$project$ElmMusicRecognitionModule$Model, false, false, true, false, true),
-	_1: _elm_lang$core$Platform_Cmd$none
-};
-var _user$project$ElmMusicRecognitionModule$HideTrackList = {ctor: 'HideTrackList'};
-var _user$project$ElmMusicRecognitionModule$ShowTrackList = {ctor: 'ShowTrackList'};
-var _user$project$ElmMusicRecognitionModule$HideArchive = {ctor: 'HideArchive'};
-var _user$project$ElmMusicRecognitionModule$ShowArchive = {ctor: 'ShowArchive'};
-var _user$project$ElmMusicRecognitionModule$ShowRecords = {ctor: 'ShowRecords'};
-var _user$project$ElmMusicRecognitionModule$view = function (model) {
+var _user$project$BeginningElm$model = {showRecords: false, showArchive: false, hideArchive: true, showTrackList: false, hideTrackList: true};
+var _user$project$BeginningElm$HideTrackList = {ctor: 'HideTrackList'};
+var _user$project$BeginningElm$ShowTrackList = {ctor: 'ShowTrackList'};
+var _user$project$BeginningElm$HideArchive = {ctor: 'HideArchive'};
+var _user$project$BeginningElm$ShowArchive = {ctor: 'ShowArchive'};
+var _user$project$BeginningElm$ShowRecords = {ctor: 'ShowRecords'};
+var _user$project$BeginningElm$view = function (model_) {
 	return A2(
 		_elm_lang$html$Html$div,
 		{
@@ -8335,7 +8307,7 @@ var _user$project$ElmMusicRecognitionModule$view = function (model) {
 				{ctor: '[]'},
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html$text('My SHAZZAAAM'),
+					_0: _elm_lang$html$Html$text('Ame Music'),
 					_1: {ctor: '[]'}
 				}),
 			_1: {
@@ -8344,7 +8316,7 @@ var _user$project$ElmMusicRecognitionModule$view = function (model) {
 					_elm_lang$html$Html$button,
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html_Events$onClick(_user$project$ElmMusicRecognitionModule$ShowRecords),
+						_0: _elm_lang$html$Html_Events$onClick(_user$project$BeginningElm$ShowRecords),
 						_1: {
 							ctor: '::',
 							_0: _elm_lang$html$Html_Attributes$class('mainButton'),
@@ -8362,7 +8334,7 @@ var _user$project$ElmMusicRecognitionModule$view = function (model) {
 						_elm_lang$html$Html$button,
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html_Events$onClick(_user$project$ElmMusicRecognitionModule$ShowArchive),
+							_0: _elm_lang$html$Html_Events$onClick(_user$project$BeginningElm$ShowArchive),
 							_1: {
 								ctor: '::',
 								_0: _elm_lang$html$Html_Attributes$class('mainButton'),
@@ -8376,7 +8348,7 @@ var _user$project$ElmMusicRecognitionModule$view = function (model) {
 						}),
 					_1: {
 						ctor: '::',
-						_0: model.showRecords ? A2(
+						_0: model_.showRecords ? A2(
 							_elm_lang$html$Html$div,
 							{ctor: '[]'},
 							{
@@ -8409,7 +8381,7 @@ var _user$project$ElmMusicRecognitionModule$view = function (model) {
 											_elm_lang$html$Html$button,
 											{
 												ctor: '::',
-												_0: _elm_lang$html$Html_Events$onClick(_user$project$ElmMusicRecognitionModule$ShowTrackList),
+												_0: _elm_lang$html$Html_Events$onClick(_user$project$BeginningElm$ShowTrackList),
 												_1: {
 													ctor: '::',
 													_0: _elm_lang$html$Html_Attributes$class('confirmUploadButton'),
@@ -8427,7 +8399,7 @@ var _user$project$ElmMusicRecognitionModule$view = function (model) {
 							}) : _elm_lang$html$Html$text(''),
 						_1: {
 							ctor: '::',
-							_0: model.showArchive ? A2(
+							_0: model_.showArchive ? A2(
 								_elm_lang$html$Html$div,
 								{
 									ctor: '::',
@@ -8505,7 +8477,7 @@ var _user$project$ElmMusicRecognitionModule$view = function (model) {
 																_elm_lang$html$Html$button,
 																{
 																	ctor: '::',
-																	_0: _elm_lang$html$Html_Events$onClick(_user$project$ElmMusicRecognitionModule$HideArchive),
+																	_0: _elm_lang$html$Html_Events$onClick(_user$project$BeginningElm$HideArchive),
 																	_1: {
 																		ctor: '::',
 																		_0: _elm_lang$html$Html_Attributes$class('closeButton'),
@@ -8527,10 +8499,10 @@ var _user$project$ElmMusicRecognitionModule$view = function (model) {
 								}) : _elm_lang$html$Html$text(''),
 							_1: {
 								ctor: '::',
-								_0: model.hideArchive ? _elm_lang$html$Html$text('') : _elm_lang$html$Html$text('something went wrong'),
+								_0: model_.hideArchive ? _elm_lang$html$Html$text('') : _elm_lang$html$Html$text('something went wrong'),
 								_1: {
 									ctor: '::',
-									_0: model.showTrackList ? A2(
+									_0: model_.showTrackList ? A2(
 										_elm_lang$html$Html$div,
 										{
 											ctor: '::',
@@ -8571,7 +8543,7 @@ var _user$project$ElmMusicRecognitionModule$view = function (model) {
 															},
 															{
 																ctor: '::',
-																_0: _elm_lang$html$Html$text('Albert Ayler, Ghosts'),
+																_0: _elm_lang$html$Html$text('song 1'),
 																_1: {ctor: '[]'}
 															}),
 														_1: {
@@ -8585,7 +8557,7 @@ var _user$project$ElmMusicRecognitionModule$view = function (model) {
 																},
 																{
 																	ctor: '::',
-																	_0: _elm_lang$html$Html$text('Anthony Naples, Refugio'),
+																	_0: _elm_lang$html$Html$text('song 2'),
 																	_1: {ctor: '[]'}
 																}),
 															_1: {
@@ -8599,7 +8571,7 @@ var _user$project$ElmMusicRecognitionModule$view = function (model) {
 																	},
 																	{
 																		ctor: '::',
-																		_0: _elm_lang$html$Html$text('0 Flynn, Tyrion'),
+																		_0: _elm_lang$html$Html$text('song 3'),
 																		_1: {ctor: '[]'}
 																	}),
 																_1: {
@@ -8608,7 +8580,7 @@ var _user$project$ElmMusicRecognitionModule$view = function (model) {
 																		_elm_lang$html$Html$button,
 																		{
 																			ctor: '::',
-																			_0: _elm_lang$html$Html_Events$onClick(_user$project$ElmMusicRecognitionModule$HideTrackList),
+																			_0: _elm_lang$html$Html_Events$onClick(_user$project$BeginningElm$HideTrackList),
 																			_1: {
 																				ctor: '::',
 																				_0: _elm_lang$html$Html_Attributes$class('closeButton'),
@@ -8630,7 +8602,7 @@ var _user$project$ElmMusicRecognitionModule$view = function (model) {
 										}) : _elm_lang$html$Html$text(''),
 									_1: {
 										ctor: '::',
-										_0: model.hideTrackList ? _elm_lang$html$Html$text('') : _elm_lang$html$Html$text('something went wrong'),
+										_0: model_.hideTrackList ? _elm_lang$html$Html$text('') : _elm_lang$html$Html$text('something went wrong'),
 										_1: {ctor: '[]'}
 									}
 								}
@@ -8641,20 +8613,13 @@ var _user$project$ElmMusicRecognitionModule$view = function (model) {
 			}
 		});
 };
-var _user$project$ElmMusicRecognitionModule$main = _elm_lang$html$Html$program(
-	{
-		init: _user$project$ElmMusicRecognitionModule$init,
-		update: _user$project$ElmMusicRecognitionModule$update,
-		subscriptions: function (_p1) {
-			return _elm_lang$core$Platform_Sub$none;
-		},
-		view: _user$project$ElmMusicRecognitionModule$view
-	})();
+var _user$project$BeginningElm$main = _elm_lang$html$Html$beginnerProgram(
+	{model: _user$project$BeginningElm$model, update: _user$project$BeginningElm$update, view: _user$project$BeginningElm$view})();
 
 var Elm = {};
-Elm['ElmMusicRecognitionModule'] = Elm['ElmMusicRecognitionModule'] || {};
-if (typeof _user$project$ElmMusicRecognitionModule$main !== 'undefined') {
-    _user$project$ElmMusicRecognitionModule$main(Elm['ElmMusicRecognitionModule'], 'ElmMusicRecognitionModule', undefined);
+Elm['BeginningElm'] = Elm['BeginningElm'] || {};
+if (typeof _user$project$BeginningElm$main !== 'undefined') {
+    _user$project$BeginningElm$main(Elm['BeginningElm'], 'BeginningElm', undefined);
 }
 
 if (typeof define === "function" && define['amd'])
